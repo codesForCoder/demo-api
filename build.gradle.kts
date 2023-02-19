@@ -25,6 +25,19 @@ dependencies {
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	implementation ("com.github.javafaker:javafaker:1.0.2")
+	implementation ("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation ("org.springframework.boot:spring-boot-starter-data-rest")
+	implementation("com.h2database:h2")
+	implementation ("org.springframework.boot:spring-boot-starter-validation")
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2")
+	implementation ("org.springframework.boot:spring-boot-starter-actuator")
+	implementation("org.springframework.cloud:spring-cloud-starter:4.0.1")
+	implementation("org.apache.velocity:velocity:1.7")
+	implementation(files("libs/demoapi-final-plain.jar"))
+
+
+
+
 }
 
 tasks.withType<Test> {
@@ -32,4 +45,9 @@ tasks.withType<Test> {
 }
 tasks.getByName<Jar>("jar") {
 	enabled = false
+}
+tasks.named<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
+	manifest {
+		attributes("Main-Class" to "org.springframework.boot.loader.PropertiesLauncher")
+	}
 }

@@ -1,4 +1,4 @@
-package com.aniket.demoapi.dao;
+package com.aniket.demoapp.dao;
 
 import lombok.Builder;
 import lombok.Data;
